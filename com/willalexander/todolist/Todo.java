@@ -1,12 +1,15 @@
 package com.willalexander.todolist;
 
+import java.util.UUID;
+
 /**
  * 
  * @author William Alexander
  * Copyright 2019 All rights reserved
  */
 public class Todo {
-
+	
+	private String uniqueId;
 	private String description;
 	private int date;
 	private int priority;
@@ -20,12 +23,26 @@ public class Todo {
 	 * Constructor default status is set to NOTSTARTED
 	 */
 	Todo(String description, int date, int priority){
+		this.uniqueId = UUID.randomUUID().toString();
 		this.description = description;
 		this.date = date;
 		this.priority = priority;
 		this.status = TodoStatus.NOTSTARTED;
 	}
+	
+	/**
+	 * @return the uniqueId
+	 */
+	public String getUniqueId() {
+		return uniqueId;
+	}
 
+	/**
+	 * @param uniqueId the uniqueId to set
+	 */
+	public void setUniqueId(String uniqueId) {
+		this.uniqueId = uniqueId;
+	}
 	/**
 	 * @return the description
 	 */
